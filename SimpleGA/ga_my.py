@@ -22,8 +22,8 @@ important_matric = np.load(fout_important_matric)
 elementary_matric = np.load(fout_elementary_matric)
 cosine_similarity_matric = np.load(fout_cosin_similarity_matric)
 
-pop_size = 15		# 种群数量
-generation_times = 50
+pop_size = 100		# 种群数量
+generation_times = 100
 max_value = 10      # 基因中允许出现的最大值
 chrom_length = 82		# 染色体长度
 pc =0.4			# 交配概率
@@ -44,25 +44,24 @@ for i in range(generation_times):
 	print('---------------------------------selection------------------------------')
 	selection(pop, fit_value)		# 新种群复制
 	print('---------------------------------crossover-----------------------------')
-	# my_crossover(pop, pc)		# 交配
+	my_crossover(pop, pc)		# 交配
 	print('---------------------------------mutation-------------------------------')
-	# my_mutation(pop, pm)       # 变异
+	my_mutation(pop, pm)       # 变异
 	print('end of evolution i,result',i,results[-1])
 
 results = results[1:]
-results.sort()
+# results.sort()
 print(results[-1])
 print('best_individual',str(best_individual))
 print('best_fit',str(best_fit))
 print('obj_value[1]',str(obj_value[1]))
 
 
-print(results[-1])
 # print("y = %f, x = %f" % (results[-1][0], results[-1][1]))
 
 X = []
 Y = []
-for i in range(pop_size):
+for i in range(generation_times):
 	X.append(i)
 	t = results[i][0]
 	Y.append(t)

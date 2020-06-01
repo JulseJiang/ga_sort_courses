@@ -44,13 +44,11 @@ def calculateF(n, i, j, k):
 
 def myb2d(pop):
     obj_value = []
-    important_sum = 0
-    elementary_sum = 0
-    cosine_similarity_sum = 0
-
     for k in range(len(pop)):
+        important_sum = 0
+        elementary_sum = 0
+        cosine_similarity_sum = 0
         b = pop[k][0]
-        # print(b)
         if b==1:
             print(b)
         if len(set(b)) != len(b):
@@ -59,13 +57,14 @@ def myb2d(pop):
         else:
             for i in range(len(b)):
                 for j in range(len(b)):
-                    if i == j: continue
-                    important_sum = important_sum + important_matric[i, j]
-                    elementary_sum = elementary_sum + elementary_matric[i, j]
                     if i > j:
-                        cosine_similarity_sum = cosine_similarity_sum + cosine_similarity_matric[i, j]
+                        important_sum = important_sum + important_matric[b[i], b[j]]
+                        elementary_sum = elementary_sum + elementary_matric[b[i], b[j]]
+                if i+1 < len(b):
+                    cosine_similarity_sum = cosine_similarity_sum + cosine_similarity_matric[b[i], b[i+1]]
             f = calculateF(len(b), important_sum, elementary_sum, cosine_similarity_sum)
         obj_value.append(f)
+        # print(f,b)
     return obj_value
 
 if __name__ == '__main__':

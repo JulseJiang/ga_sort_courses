@@ -58,5 +58,9 @@ def calculate_matrics():
     np.save(fout_elementary_matric,elementary_matric)
     np.save(fout_cosin_similarity_matric,cosine_similarity_matric)
 if __name__ == '__main__':
-    calculate_matrics()
+    # calculate_matrics()
+    # fout_importantlist = r'file/course_group2_3_important_list.npy'
+    # fout_elementary_list = r'file/course_group2_4_elementary_list.npy'
+    # fout_importantlist = np.load(fout_importantlist)
+    # fout_elementary_list = np.load(fout_elementary_list)
     print()
