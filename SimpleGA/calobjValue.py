@@ -34,7 +34,7 @@ def calobjValue(pop, chrom_length, max_value):
 
 def calculateF(n, i, j, k):
     w1 = 1
-    w2 = 1
+    w2 = 85.6
     w3 = 1
     if n * (n - 1) / 2 == 0 or (n - 1) == 0: return 1e-07
     t = round(w1 * i / (n * (n - 1) / 2) + w2 * j / (n * (n - 1) / 2) + w3 * k / (n - 1), 2)

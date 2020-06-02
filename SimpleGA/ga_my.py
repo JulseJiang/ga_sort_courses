@@ -12,21 +12,21 @@ from best import best
 from geneEncoding import geneEncoding, myEncoding
 
 # print('y = 10 * math.sin(5 * x) + 7 * math.cos(4 * x)')
-import numpy as np
-
-fout_important_matric = r'../file/course_group2_5_important_matric.npy'
-fout_elementary_matric = r'../file/course_group2_6_elementary_matric.npy'
-fout_cosin_similarity_matric = r'../file/course_group2_7_cosin_similarity_matric.npy'
-
-important_matric = np.load(fout_important_matric)
-elementary_matric = np.load(fout_elementary_matric)
-cosine_similarity_matric = np.load(fout_cosin_similarity_matric)
+# import numpy as np
+#
+# fout_important_matric = r'../file/course_group2_5_important_matric.npy'
+# fout_elementary_matric = r'../file/course_group2_6_elementary_matric.npy'
+# fout_cosin_similarity_matric = r'../file/course_group2_7_cosin_similarity_matric.npy'
+#
+# important_matric = np.load(fout_important_matric)
+# elementary_matric = np.load(fout_elementary_matric)
+# cosine_similarity_matric = np.load(fout_cosin_similarity_matric)
 
 pop_size = 100		# 种群数量
-generation_times = 100
+generation_times = 300
 max_value = 10      # 基因中允许出现的最大值
 chrom_length = 82		# 染色体长度
-pc =0.4			# 交配概率
+pc =0.4		# 交配概率
 pm = 0.1           # 变异概率
 results = [[]]		# 存储每一代的最优解，N个二元组S
 fit_value = []		# 个体适应度
@@ -50,13 +50,13 @@ for i in range(generation_times):
 	print('end of evolution i,result',i,results[-1])
 
 results = results[1:]
-# results.sort()
+results.sort()
 print(results[-1])
 print('best_individual',str(best_individual))
 print('best_fit',str(best_fit))
 print('obj_value[1]',str(obj_value[1]))
 
-
+print('---------------------------plot result -------------------------')
 # print("y = %f, x = %f" % (results[-1][0], results[-1][1]))
 
 X = []
@@ -67,5 +67,15 @@ for i in range(generation_times):
 	Y.append(t)
 
 plt.plot(X, Y)
-
+plt.savefig('../file/result/result.png')
 plt.show()
+
+print('------------------------save sorted course------------------------')
+import pandas as pd
+fin = '../file/course_group2_1.txt'
+fout = '../file/course_group2_8_sorted_course.txt'
+courses = pd.read_csv(fin,encoding='utf-8',header=None)
+with open(fout,'w') as fo:
+	for r in results[-1][1][0]:
+		fo.write(courses.iat[r,0]+'\n')
+		fo.flush()
