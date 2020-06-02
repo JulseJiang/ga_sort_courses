@@ -5,8 +5,8 @@ sort courses with ga algorithm
 ## 本项目主要复现论文[《基于知识图谱的学习路径图生成技术研究_胡文韬.caj》](https://github.com/JulseJiang/ga_sort_courses/blob/master/file/%E5%9F%BA%E4%BA%8E%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E5%9B%BE%E7%94%9F%E6%88%90%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6_%E8%83%A1%E6%96%87%E9%9F%AC.caj) 第四章遗传算法
 遗传算法主要参考https://blog.csdn.net/czrzchao/article/details/52314455
 
-入口：ga.py 二进制表示的遗传算法，与原博客有关，本项目无关
-入口：ga_my.py 自然数表示课程的遗传算法，最后得出最优课程序列
+入口：[SimpleGA/ga.py](https://github.com/JulseJiang/ga_sort_courses/blob/master/SimpleGA/ga_my.py) 二进制表示的遗传算法，与原博客有关，本项目无关
+入口：[SimpleGA/ga_my.py](https://github.com/JulseJiang/ga_sort_courses/blob/master/SimpleGA/ga_my.py) 自然数表示课程的遗传算法，最后得出最优课程序列
 ### 主要工作如下：
 
 1. 从慕课网爬取一系列课程数据 [file/course_group2.txt](http://https://github.com/JulseJiang/ga_sort_courses/blob/master/file/course_group2.txt)
